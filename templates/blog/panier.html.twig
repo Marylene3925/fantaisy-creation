@@ -1,0 +1,24 @@
+{# templates/admin/panier.html.twig #}
+
+{% extends "base-admin.html.twig" %}
+
+{% block title %}panier | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    {% block content%}
+
+        <div class="container">
+            <div class="d-flex justify-content-between mt-5">
+                <div>
+                    <p> Votre panier</p>
+                </div> 
+                     
+                <div>
+                    <p> Récapitulatif de votre commande </p>
+                </div>      
+            </div>
+        </div>
+    {% endblock %}
+
+{% endblock %}

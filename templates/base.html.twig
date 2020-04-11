@@ -1,0 +1,60 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}fantaisy-Création{% endblock %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	{% block stylesheets %}
+		 <link href=" https://bootswatch.com/4/journal/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/app.css') }}">		
+	{% endblock %}
+</head>
+<body>
+<div>
+		<div class="container border-bottom border-danger nav-one">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-nav mb-5 pr-0 pl-0">
+					<a class="navbar-brand text-dark logo" href="{{ path('homepage') }}"><img src="/image/logo2.png" alt="logo" class="logo-img"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse mt-6 " id="navbarColor01">
+						<ul class="navbar-nav mr-auto">   						              
+						</ul>                
+						<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="Recherche">
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Validez</button>
+						<ul class="navbar-nav mr-auto">               
+						<li class="nav-item active">						
+							<a class="nav-link text-dark" href="/login">Compte</a>	
+						</li>						
+						<li class="nav-item active">
+							<a class="nav-link text-dark" href="#">Panier</a>
+						</li>
+						<li class="mt-2 ml-2 nav-item active">
+							{% if app.user %}                
+										{{ app.user.name}} <a href="{{ path('app_logout') }}"><span class="ml-2 btn-deco">Déconnection</a>
+							{% endif %}
+						</li>
+						</ul>
+						</form>
+					</div>
+				</nav>				
+			</div>		
+		</div>
+  	{% block content %}
+
+  	{% endblock %}
+
+	{% block scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		$('select').formSelect();
+	</script>
+{% endblock %}
+</body>
+</html>

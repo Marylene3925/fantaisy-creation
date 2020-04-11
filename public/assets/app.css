@@ -1,0 +1,24 @@
+/**** margin ****/
+.mt-6{margin-top: 1rem;}
+/**** nav abr ****/
+.logo-img{width: 300px;}
+.nav-bijoux li{text-decoration: none; cursor: pointer; list-style: none; font-weight: 500;}
+.btn-deco{color: black}
+.nav-one li{text-decoration: none;}
+/*** partie index article ***/
+.title-article{font-size: 1.7em;}
+.img-article{width: 300px; height:300px;}
+.tarif{font-size: 1.5rem;}
+.ml-11{margin-left: 11rem;}
+.ml-7{margin-left: 7rem;}
+.img-panier{width: 35px;}
+/*** partie add "ajouter d'un article" ***/
+.style-categorie li{list-style: none;}
+.border-bottom { border-bottom: 2px solid #EB6864 !important; }
+.border-top { border-top: 2px solid #EB6864  !important;}
+/**** partie show "lire un article" ****/
+.btn-panier a { color: #ffffff; text-decoration: none; background-color: transparent; font-size: 1.5rem; font-weight: 400;}
+.img-show{width: 370px; height: 370px;}
+/**** partie fantaisy ****/
+.img-admin h1{color: #EB6864;word-spacing: 1rem;margin-top: 8rem; line-height: 1rem; font-size: 4rem;}
+table {border-collapse: separate; border-spacing: 80px; }

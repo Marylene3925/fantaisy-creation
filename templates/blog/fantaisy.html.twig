@@ -1,0 +1,18 @@
+{% extends "base-admin.html.twig" %}
+{% block stylesheets %}
+		 <link href=" https://bootswatch.com/4/journal/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/app.css') }}">		
+{% endblock %}
+
+{% block title %}Admin | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+        <div class="container img-admin">
+            <h1 class="text-center">Bienvenue sur votre boutique</h1>
+            <h1 class="text-center">Fantaisy-Crèation</h1>
+        </div>
+    {% endblock %}
+
+{% endblock %}

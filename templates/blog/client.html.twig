@@ -1,0 +1,28 @@
+{# templates/blog/client.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Client{% endblock %}
+
+{% block content %}
+   <div class="container mt-5">
+		
+       <p> vos informations</p>
+  <ul>
+{% for users in users %}
+  <table>
+  <td>
+    <p class="">{{ users.id}}</a></p>
+    <p class="">{{ users.name}}</a></p>
+    <p class="">{{ users.firstname}}</a></p>
+    <p class="">{{ users.username}}</a></p>
+    <p class="">{{ users.email}}</a></p>
+    <p class="">{{ users.password}}</a></p>
+    <p class="">{{ users.adress}}</a></p>
+    <p class="">{{ users.postcode}}</a></p>
+    <p class="">{{ users.city}}</a></p>
+    <p class="">{{ users.phone}}</a></p>
+  </td>
+{% endfor %}  
+
+{% endblock %}

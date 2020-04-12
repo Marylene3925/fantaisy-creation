@@ -21,4 +21,5 @@
 .img-show{width: 370px; height: 370px;}
 /**** partie fantaisy ****/
 .img-admin h1{color: #EB6864;word-spacing: 1rem;margin-top: 8rem; line-height: 1rem; font-size: 4rem;}
-table {border-collapse: separate; border-spacing: 80px; }
+.table-article {border-collapse: separate; border-spacing: 80px; }
+.table-Utilisateurs {border-collapse: separate; border-spacing: 50px; }

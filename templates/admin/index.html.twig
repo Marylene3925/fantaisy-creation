@@ -11,7 +11,7 @@
                 <div class="col s12">
                     <a href="{{ path('article_add') }}" class="btn btn blue darken-4" style="float: right">Ajouter</a>
                     <h5>Articles</h5>
-                    <table class="mt-3">
+                    <table class="mt-3 table-article">
                         <tr>
                             <th>#</th>
                             <th>Titre</th>
@@ -48,25 +48,32 @@
             <div class="row">
                 <div class="col s12 m-t-30 mt-5">
                     <h5>Utilisateurs</h5>
-                    <table class="mt-4">
+                    <table class="mt-4 table-Utilisateurs">
                         <tr>
                             <th>#</th>
-                            <th>Adresse email</th>
-                            <th>Username</th>
-                            <th>Roles</th>
-                            <th>Actions</th>
+                            <th>Adresse email</th>                            
+                            <th>Name</th>
+                            <th>Firstname</th>
+                            <th>Adress</th>
+                            <th>Postcode</th>
+                            <th>City</th>
+                            <th>Phone</th>                           
                         </tr>
+
                         {% set i = 1 %}
                         {% for user in users %}
                             <tr>                                
                                 <td>{{ i }}</td>
                                 <td>{{ user.email }}</td>
-                                <td>{{ user.username }}</td>
-                                <td>
-                                    <span class="badge blue">
-                                        admin.
-                                    </span>
-                                </td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.adress }}</td>
+                                <td>{{ user.postcode }}</td>
+                                <td>{{ user.city }}</td>
+                                <td>{{ user.phone}}</td>
+                                
+
+                                
                                 <td>
                                     <a href=""><i class="material-icons red-text">Supprimer</i></a>
                                 </td>
@@ -74,7 +81,7 @@
                             {% set i = i+1 %}
                         {% endfor %}
                     </table>
-                </div>
+                </div>       
             </div>
         </div>
     </div>

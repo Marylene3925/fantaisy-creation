@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Panier;
 
 
+
 class BlogController extends AbstractController
 {
     public function index()
@@ -142,9 +143,24 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function panier()
+    // public function client()
+    // {
+    //     $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
+    //         ['isPublished' => true],
+    //         ['publicationDate' => 'desc']            
+    //     );
+
+    //     return $this->render('blog/client.html.twig', ['articles' => $articles]);
+    // }
+
+    public function client()
     {
-    	return $this->render('blog/panier.html.twig');
+       
+
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        return $this->render('blog/client.html.twig', ['users' => $users]);
     }
-    
+
+
 }

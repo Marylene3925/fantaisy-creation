@@ -34,8 +34,9 @@
 							<a class="nav-link text-dark" href="#">Panier</a>
 						</li>
 						<li class="mt-2 ml-2 nav-item active">
-							{% if app.user %}                
-										{{ app.user.name}} <a href="{{ path('app_logout') }}"><span class="ml-2 btn-deco">Déconnection</a>
+							{% if app.user %}       
+							 <a href="/client">Bonjour {{ app.user.firstname}}</a>        
+							<a href="{{ path('app_logout') }}"><span class="ml-2 btn-deco">Déconnection</a>
 							{% endif %}
 						</li>
 						</ul>

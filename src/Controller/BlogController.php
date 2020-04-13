@@ -62,7 +62,9 @@ class BlogController extends AbstractController
             $em->persist($article); // On confie notre entité à l'entity manager (on persist l'entité)
             $em->flush(); // On execute la requete
 
-            return new Response('L\'article a bien été enregistrer.');
+            return $this->redirectToRoute('admin');
+            
+            
         }
 
     	return $this->render('blog/add.html.twig', [
@@ -113,7 +115,8 @@ class BlogController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            return new Response('L\'article a bien été modifier.');
+           
+            return $this->redirectToRoute('admin');
             
         }
 
@@ -123,9 +126,25 @@ class BlogController extends AbstractController
         ]);
     }
     
-    public function remove($id)
-    {
-    	return new Response('<h1>Delete article: ' .$id. '</h1>');
+    public function remove(int $id): Response {
+ 
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+         
+        if($article === null) {
+        $articles = $this->getDoctrine()->getManager();
+        $articles->remove($article);
+        $articles->flush();
+        }
+ 
+        $article = $this->getDoctrine()
+                        ->getRepository(Article::class)
+                        ->find($id);
+        $manager = $this->getDoctrine()->getManager();
+ 
+        $manager->remove($article);
+        $manager->flush();
+        $this->addFlash('deleteArticle', 'L\'article a bien étais supprimer');
+        return $this->redirectToRoute('admin');
     }
 
     public function admin()
@@ -143,24 +162,12 @@ class BlogController extends AbstractController
         ]);
     }
 
-    // public function client()
-    // {
-    //     $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
-    //         ['isPublished' => true],
-    //         ['publicationDate' => 'desc']            
-    //     );
-
-    //     return $this->render('blog/client.html.twig', ['articles' => $articles]);
-    // }
-
     public function client()
     {
-       
-
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         return $this->render('blog/client.html.twig', ['users' => $users]);
     }
 
-
+   
 }

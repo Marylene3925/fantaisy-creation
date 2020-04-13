@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ColoryRepository")
  */
-class Category
+class Colory
 {
     /**
      * @ORM\Id()
@@ -23,7 +23,7 @@ class Category
      */
     private $label;
 
-    /**
+        /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="categories")
      */
     private $articles;

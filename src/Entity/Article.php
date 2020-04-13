@@ -32,11 +32,6 @@ class Article
     private $picture;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $content;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $tarif;
@@ -61,10 +56,21 @@ class Article
      */
     private $categories;  
 
+     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Colory", inversedBy="articles")
+     */
+    private $colory;
+
+      /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Size", inversedBy="articles")
+     */
+    private $size;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-        $this->colories = new ArrayCollection();
+        $this->colory = new ArrayCollection();
+        $this->size = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +183,58 @@ class Article
     {
         if ($this->categories->contains($category)) {
             $this->categories->removeElement($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getColory(): Collection
+    {
+        return $this->colory;
+    }
+
+    public function addColory(Category $colory): self
+    {
+        if (!$this->colory->contains($colory)) {
+            $this->colory[] = $colory;
+        }
+
+        return $this;
+    }
+
+    public function removeColory(Category $colory): self
+    {
+        if ($this->colory->contains($colory)) {
+            $this->colory->removeElement($colory);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Size[]
+     */
+    public function getSize(): Collection
+    {
+        return $this->size;
+    }
+
+    public function addSize(Size $size): self
+    {
+        if (!$this->size->contains($size)) {
+            $this->size[] = $size;
+        }
+
+        return $this;
+    }
+
+    public function removeSize(Size $size): self
+    {
+        if ($this->size->contains($size)) {
+            $this->size->removeElement($size);
         }
 
         return $this;

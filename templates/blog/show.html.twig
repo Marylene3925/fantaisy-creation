@@ -7,28 +7,44 @@
 {% block content %}
 	<article class="container">
 		<div class="row">
-			<div class="col s12 m12 l8 offset-l2 mt-5">
-				<h2 class="mb-4">{{ article.title }}</h2>
-				<span>{{ article.publicationDate|date('d/m/Y') }}</span>
+			<div class="col-xl-6 mt-5">
+				
 				<p class="mt-4">
 					<img src="{{ asset('uploads/' ~ article.picture) }}" class="responsive-img img-show">
 				</p>				
-				{# <span class="categories">{% for category in article.categories %} {{ category.label }}{{ loop.last ? '' : ',' }} {% endfor %}</span>	#}				
+							
 			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12 l8 offset-l2">
-				<p>
-					{{ article.content }}
-					
-				</p>
-				<p>Les différentes tailles : </p>		
-				<p>
-					<span>{{ article.tarif}}&#8364;</span>					
-				</p>
-				<div>
-					<p class="btn-panier btn-primary btn pl-5 mt-3 "> <a href="/panier">Ajouter au pannier <img class=" img-panier-show pl-5 pr-4 " src="https://img.icons8.com/dotty/50/000000/shopping-bag.png"/><a></p>
-					</div>
+		
+			<div class="col-xl-6 mt-5 content-show">
+				<div class="d-flex justify-content-between mb-4 text-primary">
+					<h2>{{ article.title }}</h2>
+					<h2>{{ article.tarif}}&#8364;</h2>	
+				</div>
+				
+				<p class="mt-5">Selectionner votre couleur :</p>	
+						
+				<select>				
+					<option value="dog">rouge</option>
+					<option value="cat">vert</option>
+					<option value="hamster">noir</option>
+				</select>
+
+				<p class="mt-5">Selectionner votre tailles : </p>	
+				<select >
+				<option value="dog">10</option>
+					<option value="cat">20</option>
+					<option value="hamster">30</option>
+				</select>	
+
+				<p class="mt-5">Selectionner votre quantité : </p>	
+				<select >
+				<option value="dog">1</option>
+					<option value="cat">2</option>
+					<option value="hamster">3</option>
+				</select>	
+				
+				<p class="btn-panier btn-primary btn pl-4 mt-3 "> <a href="/panier">Ajouter au pannier <img class=" img-panier-show pl-5 pr-3 " src="https://img.icons8.com/dotty/50/000000/shopping-bag.png"/><a></p>
+				
 			</div>
 	</article>
 {% endblock %}

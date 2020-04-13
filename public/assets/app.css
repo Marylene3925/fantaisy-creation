@@ -12,14 +12,22 @@
 .ml-11{margin-left: 11rem;}
 .ml-7{margin-left: 7rem;}
 .img-panier{width: 35px;}
-/*** partie add "ajouter d'un article" ***/
-.style-categorie li{list-style: none;}
+/*** partie add "ajouter un article" ***/
+
+.custom-file-label::after { content: "Télécharger"; }  
+.content-add-categorie li{list-style: none;}
 .border-bottom { border-bottom: 2px solid #EB6864 !important; }
 .border-top { border-top: 2px solid #EB6864  !important;}
+.partie-form-article .select-wrapper{display: flex; justify-content: space-between;}
 /**** partie show "lire un article" ****/
 .btn-panier a { color: #ffffff; text-decoration: none; background-color: transparent; font-size: 1.5rem; font-weight: 400;}
 .img-show{width: 370px; height: 370px;}
+.text-tarif{font-size: 1.5rem;}
+.content-show .select-wrapper{display: flex;}
+.content-show li,.caret{display: none;}
 /**** partie fantaisy ****/
 .img-admin h1{color: #EB6864;word-spacing: 1rem;margin-top: 8rem; line-height: 1rem; font-size: 4rem;}
 .table-article {border-collapse: separate; border-spacing: 80px; }
 .table-Utilisateurs {border-collapse: separate; border-spacing: 50px; }
+/**** partie client ****/
+.table-client {border-collapse: separate; border-spacing: 50px; }

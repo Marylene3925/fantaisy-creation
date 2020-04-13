@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Colory;
+use App\Entity\Size;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -23,7 +25,13 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'data_class' => null
             ])
-            ->add('content', TextareaType::class, ['required' => false])
+            ->add('colory', EntityType::class, [
+                'class' => Colory::class,
+                'choice_label' => 'label',
+                'multiple' => true,
+                'expanded' => false,
+                'required' => false
+            ])            
             ->add('tarif', TextType::class, ['required' => false])
             ->add('isPublished', CheckboxType::class, ['label'    => 'publié','required' => false,])
             ->add('categories', EntityType::class, [
@@ -32,7 +40,14 @@ class ArticleType extends AbstractType
                 'multiple' => true,
                 'expanded' => false,
                 'required' => false
-            ])            
+            ]) 
+            ->add('size', EntityType::class, [
+                'class' => Size::class,
+                'choice_label' => 'label',
+                'multiple' => true,
+                'expanded' => false,
+                'required' => false
+            ])               
         ;
     }
 

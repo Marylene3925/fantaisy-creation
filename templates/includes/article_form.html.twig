@@ -3,9 +3,9 @@
 
 {% block content %}
 
-	{{ form_start(form, {'attr': {'class': ''}}) }}
+	{{ form_start(form, {'attr': {'class': 'partie-form-article'}}) }}
 
-		<div class="input-field col s12 m6 l6 mt-5">
+		<div class=" m6 l6 mt-5">
 			{{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
 			{# {{ form_label(form.title, 'Le titre de votre article') }} #}
 			<span class="error">{{ form_errors(form.title) }}</span>
@@ -13,35 +13,44 @@
 		
 		
 
-		<div class="input-field col s12 m12 l12 mt-5">
+		<div class=" m12 l12 mt-5">
 			{{ form_widget(form.picture, {'attr': {'placeholder': 'Télécharger une image'}}) }}
+
 		</div>
 
 
 
-		<div class="input-field col s12 m6 l6 mt-5 style-categorie ">
+		<div class="mt-5 content-add-categorie">
 			{{ form_widget(form.categories, {'attr': {'placeholder': 'Choisissez une categorie'}}) }}
 			{# {{ form_label(form.categories, 'Choisissez un ou plusieurs catégories') }} #}
 		</div>
 
-		<div class="input-field col s12 m12 l12 mt-5">
-			{{ form_widget(form.content, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Le contenu de l\'article'}}) }}
+		<div class="mt-5 content-add-categorie">
+	
+		{{ form_widget(form.colory, {'attr': {'placeholder': 'Choisissez une colories'}}) }}
+		 
 		</div>
-		
-		<div class="input-field col s12 m12 l12 mt-5">
+
+		<div class="mt-5 content-add-categorie">
+	
+		{{ form_widget(form.size, {'attr': {'placeholder': 'Choisissez une taille'}}) }}
+		 
+		</div>
+	
+		<div class=" m12 l12 mt-5">
 			{{ form_widget(form.tarif, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Prix de l\'article'}})}}
 		</div>
 
-		<div class="input-field col s12 m12 l12 mt-5">
+		<div class=" m12 l12 mt-5">
 			<p>
 				<label>
-					{{ form_widget(form.isPublished, {'attr': {'class': 'filled-in'}}) }}	
+					{{ form_widget(form.isPublished, {'attr': {'class': 'filled-in'}}) }}
 						        
 				</label>
 			</p>
 		</div>
 
-		<div class="input-field col s12 m12 l12 mt-5 d-flex justify-content-between">
+		<div class=" m12 l12 mt-5 d-flex justify-content-between">
 			<input type="submit" name="" value="Enregistrer" class="btn btn-primary"><a class="btn btn-primary" href="/admin">Retour</a>
 			 
 		</div>		

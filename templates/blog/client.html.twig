@@ -5,24 +5,37 @@
 {% block title %}Client{% endblock %}
 
 {% block content %}
-   <div class="container mt-5">
-		
-       <p> vos informations</p>
-  <ul>
-{% for users in users %}
-  <table>
-  <td>
-    <p class="">{{ users.id}}</a></p>
-    <p class="">{{ users.name}}</a></p>
-    <p class="">{{ users.firstname}}</a></p>
-    <p class="">{{ users.username}}</a></p>
-    <p class="">{{ users.email}}</a></p>
-    <p class="">{{ users.password}}</a></p>
-    <p class="">{{ users.adress}}</a></p>
-    <p class="">{{ users.postcode}}</a></p>
-    <p class="">{{ users.city}}</a></p>
-    <p class="">{{ users.phone}}</a></p>
-  </td>
-{% endfor %}  
+  
+  <div class="container mt-5">		
+    <p> vos informations : </p>
+
+    
+
+   <table class="mt-3 table-client">
+    <tr>
+      <th>#</th>                                
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>  
+      <th>Adresse</th>
+      <th>Code postal</th>
+      <th>ville</th>
+      <th>Téléphone</th>                           
+    </tr>
+   
+   {% for users in users %}
+      <tr>
+        <td>{{ users.id}}</td>
+        <td>{{ users.name}}</td>
+        <td>{{ users.firstname}}</td>
+        <td>{{ users.email}}</td>
+        <td>{{ users.adress}}</td>
+        <td>{{ users.postcode}}</td>
+        <td>{{ users.city}}</td>
+        <td>{{ users.phone}}</td>        
+      </tr>
+       
+  {% endfor %}  
+  
 
 {% endblock %}

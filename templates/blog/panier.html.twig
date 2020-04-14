@@ -10,11 +10,50 @@
 
         <div class="container">
             <div class="d-flex justify-content-between mt-5">
-                <div>
-                    <p> Votre panier</p>
-                </div> 
+                <div class="col-xl-6">
+                    <p> Votre panier</p>                   
+
+                    {# je transfome mon tableaux items en une longueur et si c'est superieur a 0 j'ai un tableau avec les produits representés #}
+                    {% if items | length > 0 %}
+                        <table class="table-panier">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Article</th>
+                                    <th>Prix</th>
+                                    <th>Quantité</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items %}
+                                    <tr>
+                                        <td>{{item.article.picture}}</td>
+                                        <td>{{item.article.title}}</td>                                        
+                                        <td>{{item.article.tarif}}</td>
+                                        <td>{{item.quantity}}</td>
+                                        <td>{{item.article.tarif * item.quantity }}&#8364;</td> 
+                                        <td><a href="{{ path('removeCommande', {'id': item.article.id}) }}">suprimer</a></td>                                     
+                                    </tr>
+                                    
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr class="d-flex justify-content-start">
+                                    <td>Total : </td>
+                                    <td>{{total}}</td>
+                                    <td></td>                                
+                                </tr>
+                            </tfoot>
+                        </table>
+                    {% else %}
+                        <p> Votre panier est vide </p>
+                    {% endif %}
+                </div>
+            
                      
-                <div>
+                <div class="col-xl-6">
                     <p> Récapitulatif de votre commande </p>
                 </div>      
             </div>

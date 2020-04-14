@@ -1,0 +1,24 @@
+{# templates/blog/bagues.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Bagues | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+
+        <div class="container">
+            {% for category in category %}
+                <tr>
+                    <td>{{category.label}}</td>
+                           
+                </tr>
+       
+         {% endfor %} 
+
+        </div>
+
+    {% endblock %}
+
+{% endblock %}

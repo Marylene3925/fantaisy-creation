@@ -13,7 +13,6 @@
 .ml-7{margin-left: 7rem;}
 .img-panier{width: 35px;}
 /*** partie add "ajouter un article" ***/
-
 .custom-file-label::after { content: "Télécharger"; }  
 .content-add-categorie li{list-style: none;}
 .border-bottom { border-bottom: 2px solid #EB6864 !important; }
@@ -31,3 +30,6 @@
 .table-Utilisateurs {border-collapse: separate; border-spacing: 50px; }
 /**** partie client ****/
 .table-client {border-collapse: separate; border-spacing: 50px; }
+/**** partie panier ****/
+.table-panier{border-collapse: separate; border-spacing: 30px;}
+.btn-commande{width: 100%;}

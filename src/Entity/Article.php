@@ -61,16 +61,24 @@ class Article
      */
     private $colory;
 
-      /**
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Size", inversedBy="articles")
      */
     private $size;
 
+     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Panier", inversedBy="articles")
+     */
+    private $quantity;
+
+    
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->colory = new ArrayCollection();
         $this->size = new ArrayCollection();
+        $this->quantity = new ArrayCollection();
+           
     }
 
     public function getId(): ?int
@@ -239,5 +247,33 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return Collection|Panier[]
+     */
+    public function getQuantity(): Collection
+    {
+        return $this->quantity;
+    }
+
+    public function addQuantity(Panier $quantity): self
+    {
+        if (!$this->quantity->contains($quantity)) {
+            $this->quantity[] = $quantity;
+        }
+
+        return $this;
+    }
+
+    public function removeQuantity(Panier $quantity): self
+    {
+        if ($this->quantity->contains($quantity)) {
+            $this->quantity->removeElement($quantity);
+        }
+
+        return $this;
+    }
+
+         
     
 }

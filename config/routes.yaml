@@ -32,13 +32,22 @@ fantaisy:
   path: /fantaisy
   controller: App\Controller\BlogController::fantaisy
 
-# panier:
-#   path: /panier
-#   controller: App\Controller\BlogController::panier
-
 client:
   path: /client
   controller: App\Controller\BlogController::client
 
+bagues:
+  path: /bagues
+  controller: App\Controller\BlogController::bagues
 
-  
+panier:
+  path: /panier
+  controller: App\Controller\BlogController::panier
+
+addArticle:
+  path: /addArticle/{id}
+  controller: App\Controller\BlogController::addArticle
+
+removeCommande
+   path: /removeCommande
+  controller: App\Controller\BlogController:removeCommande

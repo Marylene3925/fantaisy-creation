@@ -23,7 +23,7 @@ class Colory
      */
     private $label;
 
-        /**
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="categories")
      */
     private $articles;

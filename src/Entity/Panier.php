@@ -27,6 +27,7 @@ class Panier
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="categories")
      */
     private $articles;
+    
 
     
     public function __construct()

@@ -5,12 +5,24 @@
 {% block title %}Admin. | {{ parent() }}{% endblock %}
 
 {% block content %}
+    <div class="container  border-danger border-top border-bottom">
+        <nav class="nav-bijoux mt-3">
+            <div> 
+                <ul class="d-flex justify-content-between">
+                    <li><a class="nav-link text-dark" href="#article">Article</a></li>					
+                    <li><a class="nav-link text-dark" href="/commande">Commande</a></li>
+                    <li><a class="nav-link text-dark" href="#utilisateur">Utilisateur</a></li>                   
+                </ul>
+            </div>
+        </nav>		
+	</div>
+
     <div class="admin-page mt-5">
         <div class="container">
-            <div class="row">
+            <div class="row" id="article">
                 <div class="col s12">
-                    <a href="{{ path('article_add') }}" class="btn btn blue darken-4" style="float: right">Ajouter</a>
-                    <h5>Articles</h5>
+                    <a href="{{ path('article_add') }}" class="btn btn blue darken-4" style="float: right"><span class="text-primary ">Ajouter</a>
+                    <h5 class="text-primary">Articles</h5>
                     <table class="mt-3 table-article">
                         <tr>
                             <th>#</th>
@@ -45,9 +57,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="utilisateur">
                 <div class="col s12 m-t-30 mt-5">
-                    <h5>Utilisateurs</h5>
+                    <h5 class="text-primary">Utilisateurs</h5>
                     <table class="mt-4 table-Utilisateurs">
                         <tr>
                             <th>#</th>

@@ -24,12 +24,13 @@
 .text-tarif{font-size: 1.5rem;}
 .content-show .select-wrapper{display: flex;}
 .content-show li,.caret{display: none;}
-/**** partie fantaisy ****/
+/**** partie fantaisy admin ****/
+.fs-ajouter{font-size: 1rem;}
 .img-admin h1{color: #EB6864;word-spacing: 1rem;margin-top: 8rem; line-height: 1rem; font-size: 4rem;}
 .table-article {border-collapse: separate; border-spacing: 80px; }
 .table-Utilisateurs {border-collapse: separate; border-spacing: 50px; }
 /**** partie client ****/
 .table-client {border-collapse: separate; border-spacing: 50px; }
 /**** partie panier ****/
-.table-panier{border-collapse: separate; border-spacing: 30px;}
+.table-panier{border-collapse: separate; border-spacing: 30px; text-align: center;}
 .btn-commande{width: 100%;}

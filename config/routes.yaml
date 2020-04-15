@@ -48,6 +48,11 @@ addArticle:
   path: /addArticle/{id}
   controller: App\Controller\BlogController::addArticle
 
-removeCommande
-   path: /removeCommande
-  controller: App\Controller\BlogController:removeCommande
+removeCommande:
+  path: /removeCommande/{id}
+  controller: App\Controller\BlogController::removeCommande
+
+commande:
+  path: /commande
+  controller: App\Controller\BlogController::commande
+

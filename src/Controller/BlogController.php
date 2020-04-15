@@ -10,9 +10,8 @@ use App\Form\ArticleType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 class BlogController extends AbstractController
 {
@@ -197,28 +196,33 @@ class BlogController extends AbstractController
             $panierWithData[] = [
                 // je fais appel a la fonction articlerepository (fait des requette sur des produit), jutilise la fonction 'find' pour trouver 1 article grace a son 'id'
                 'article' => $articleRepository->find($id),
-                'quantity'=> $quantity
-            ];
+                'quantity'=> $quantity                
+            ];           
         }
-
         //dd($panierWithData);
-
-        // je calcul le total des pris de me articles
+        // je calcul le total des prix de me articles
         $total = 0;
         // je fait une boucle pour faire mes calcul
         foreach($panierWithData as $item) {
             //je calcul le total pour 1 article
             $totalItem = $item['article']->getTarif() * $item['quantity'];
             // je rajoute le prix de 1 article  au prix total de tous les articles
-            $total += $totalItem;
+            $total += $totalItem;            
         }
-        
+        foreach($panierWithData as $item) {
+            //je rajoute des frais de port
+            $fraisDePort = 2;           
+        }
         return $this->render('blog/panier.html.twig', [
+            'controller_name' => 'Votre Panier',
             //items est la liste de mes éléments qui corespondra a 'panierwithdata'
             'items' => $panierWithData,
             // total sera la total en entier
-            'total' => $totalItem
-        ]);         
+            'total' => $total,
+            //Je rajoute des des frais de port 
+            'fraisDePort' => $fraisDePort
+        ]);
+        // je calcul tous mes pric         
     }
 
      
@@ -238,8 +242,8 @@ class BlogController extends AbstractController
         }
         // remettre le panier dans la session pour le sauvegarder
         $session->set('panier', $panier);
+        return $this->redirectToRoute('homepage');
 
-        dd($session->get('panier'));
      }
 
      public function removeCommande($id, Request $request){
@@ -249,16 +253,17 @@ class BlogController extends AbstractController
         // je recupere dans ma session le panier
         $panier = $session->get('panier', []);
         // si jamais mon panier n'est pas vide tu suprime l'article souhaiter
-        if(!empty($panier[$id])) {
+        if (($panier[$id]) > 1) {
+            $panier[$id]--;
+        } else {
             unset($panier[$id]);
-        } 
+        }
         
         $session->set('panier', $panier);
         
-        return $this->redirectToRoute("panier");
+        return $this->redirectToRoute('panier');
 
-     }
+    }
 
     
-
 }

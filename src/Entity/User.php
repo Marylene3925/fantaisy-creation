@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -69,6 +71,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $phone;
+
+
+    public function __construct()
+    {
+        $this->commande = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -234,6 +242,34 @@ class User implements UserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commande[]
+     */
+    public function getCommande(): Collection
+    {
+        return $this->commande;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commande->contains($commande)) {
+            $this->commande[] = $commande;
+            $commande->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commande->contains($commande)) {
+            $this->commande->removeElement($commande);
+            $commande->removeUser($this);
+        }
 
         return $this;
     }

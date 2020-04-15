@@ -7,7 +7,7 @@
 {% block content %}
   
   <div class="container mt-5">		
-    <p> vos informations : </p>
+    <h1 class="text-primary"> vos informations : </h1>
 
     
 
@@ -22,7 +22,7 @@
       <th>ville</th>
       <th>Téléphone</th>                           
     </tr>
-   
+ 
    {% for users in users %}
       <tr>
         <td>{{ users.id}}</td>
@@ -33,9 +33,9 @@
         <td>{{ users.postcode}}</td>
         <td>{{ users.city}}</td>
         <td>{{ users.phone}}</td>        
-      </tr>
-       
+      </tr>  
+      
   {% endfor %}  
-  
+  </table>
 
 {% endblock %}

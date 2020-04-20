@@ -56,3 +56,7 @@ commande:
   path: /commande
   controller: App\Controller\BlogController::commande
 
+valCommande:
+  path: /valCommande
+  controller: App\Controller\BlogController::valCommande
+

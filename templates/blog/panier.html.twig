@@ -2,7 +2,7 @@
 
 {% extends "base-admin.html.twig" %}
 
-{% block title %}panier | {{ parent() }}{% endblock %}
+{% block title %}Panier | {{ parent() }}{% endblock %}
 
 {% block body %}
 
@@ -54,7 +54,7 @@
                         </div>
                         <div>
                             {% for item in items %}
-                            <p>{{item.quantity }} articles </p>
+                            <p>{{ item.quantity }} article(s) </p>
                             {% endfor %}    
                         </div>                                                                             
                     </div>
@@ -66,7 +66,7 @@
                         <p class="mt-4 font-weight-bold">Total </>
                         <p class="mt-4 font-weight-bold">{{total + fraisDePort}}&#8364;</p>                                                            
                     </div>
-                    <p><a href="#" class="btn btn-primary btn-commande">Validez la commande</a></p>
+                    <p><a href="/valCommande" class="btn btn-primary btn-commande">Validez la commande</a></p>
                 
                 </div>      
             </div>

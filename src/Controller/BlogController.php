@@ -209,10 +209,10 @@ class BlogController extends AbstractController
             // je rajoute le prix de 1 article  au prix total de tous les articles
             $total += $totalItem;            
         }
-        foreach($panierWithData as $item) {
+        
             //je rajoute des frais de port
             $fraisDePort = 2;           
-        }
+       
         return $this->render('blog/panier.html.twig', [
             'controller_name' => 'Votre Panier',
             //items est la liste de mes éléments qui corespondra a 'panierwithdata'
@@ -262,8 +262,13 @@ class BlogController extends AbstractController
         $session->set('panier', $panier);
         
         return $this->redirectToRoute('panier');
-
     }
+
+    public function valCommande()
+    {
+    	return $this->render('blog/valCommande.html.twig');
+    }
+
 
     
 }

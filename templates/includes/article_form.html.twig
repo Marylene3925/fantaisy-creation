@@ -5,7 +5,7 @@
 
 	{{ form_start(form, {'attr': {'class': 'partie-form-article'}}) }}
 
-		<div class=" m6 l6 mt-5">
+		<div class=" mt-5">
 			{{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
 			{# {{ form_label(form.title, 'Le titre de votre article') }} #}
 			<span class="error">{{ form_errors(form.title) }}</span>
@@ -13,19 +13,17 @@
 		
 		
 
-		<div class=" m12 l12 mt-5">
+		<div class=" mt-5">
 			{{ form_widget(form.picture, {'attr': {'placeholder': 'Télécharger une image'}}) }}
 
 		</div>
 
-
-
 		<div class="mt-5 content-add-categorie">
-			{{ form_widget(form.categories, {'attr': {'placeholder': 'Choisissez une categorie'}}) }}
+			{{ form_widget(form.categories, {'attr': {'placeholder': 'Choisissez une catégorie'}}) }}
 			{# {{ form_label(form.categories, 'Choisissez un ou plusieurs catégories') }} #}
 		</div>
 
-		<div class="mt-5 content-add-categorie">
+		<div class="mt-5 content-add-couleur">
 	
 		{{ form_widget(form.colory, {'attr': {'placeholder': 'Choisissez une colories'}}) }}
 		 
@@ -37,11 +35,11 @@
 		 
 		</div>
 	
-		<div class=" m12 l12 mt-5">
+		<div class=" mt-5">
 			{{ form_widget(form.tarif, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Prix de l\'article'}})}}
 		</div>
 
-		<div class=" m12 l12 mt-5">
+		<div class=" mt-5">
 			<p>
 				<label>
 					{{ form_widget(form.isPublished, {'attr': {'class': 'filled-in'}}) }}
@@ -50,7 +48,7 @@
 			</p>
 		</div>
 
-		<div class=" m12 l12 mt-5 d-flex justify-content-between">
+		<div class=" mt-5 d-flex justify-content-between">
 			<input type="submit" name="" value="Enregistrer" class="btn btn-primary"><a class="btn btn-primary" href="/admin">Retour</a>
 			 
 		</div>		
